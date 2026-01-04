@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "ontools",
+    "site": "ontools-4aa16",
     "public": "dist",
     "ignore": [
       "firebase.json",
