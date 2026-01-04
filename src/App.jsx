@@ -7,19 +7,19 @@ import Footer from "./components/Footer";
 import "./styles/global.css";
 
 function App() {
-  return (
-    <Router>
-      <>
-        <Navbar />
+    return (
+        <Router>
+            <>
+                <Navbar />
 
-        <main>
-          <MainRoutes />
-        </main>
+                <main>
+                    <MainRoutes />
+                </main>
 
-        <Footer />
-      </>
-    </Router>
-  );
+                <Footer />
+            </>
+        </Router>
+    );
 }
 
 export default App;

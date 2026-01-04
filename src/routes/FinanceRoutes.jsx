@@ -20,11 +20,8 @@ import { Route } from "react-router-dom";
 // Import Finance Pages
 import GSTCalculator from "../pages/finance/GSTCalculator/GSTCalculator";
 
-
 export const FinanceRoutes = () => (
     <>
-        <Route path="/gst-calculator" element={<GSTCalculator />} />
-      
+        <Route path="gst-calculator" element={<GSTCalculator/>} />
     </>
 );
-

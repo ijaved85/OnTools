@@ -1,0 +1,421 @@
+/* ========================================================================= */
+/* 1. CONFIGURATION & VARIABLES */
+/* ========================================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Beiruti&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+
+$primary-blue: #007bff;
+$text-dark: #222;
+$text-light: #555;
+$bg-light: #fff2f2;
+$white: #ffffff;
+$family: "Beiruti", sans-serif;
+$head-family: "Abril Fatface", serif;
+
+/* ========================================================================= */
+/* 2. ABOUT PAGE STYLES (Non-Card Layout) */
+/* ========================================================================= */
+
+.about-wrapper {
+    width: 100%;
+    padding-bottom: 4rem;
+    background: $bg-light;
+}
+
+.about-hero {
+    background: linear-gradient(135deg, #007bff33, #007bff11);
+    padding: 6rem 2rem;
+    text-align: center;
+
+    h1 {
+        font-family: $head-family;
+        font-size: 4.2rem;
+
+        span {
+            color: $primary-blue;
+        }
+    }
+
+    p {
+        max-width: 80rem;
+        margin: 1.5rem auto 0;
+        font-size: 1.9rem;
+        color: $text-light;
+        line-height: 1.6;
+    }
+}
+
+.about-content {
+    max-width: 85rem;
+    margin: 3rem auto;
+    padding: 0 2rem;
+
+    p {
+        font-size: 1.8rem;
+        color: $text-dark;
+        margin-bottom: 2rem;
+        line-height: 1.7;
+    }
+}
+
+.features-container {
+    max-width: 100rem;
+    margin: 4rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2.5rem;
+    padding: 0 2rem;
+}
+
+.feature-item {
+    background: $white;
+    padding: 2.8rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.05);
+    border-left: 0.5rem solid $primary-blue;
+
+    h2 {
+        font-family: $head-family;
+        font-size: 2.4rem;
+        margin-bottom: 1.5rem;
+        color: $primary-blue;
+    }
+
+    p {
+        font-size: 1.7rem;
+        line-height: 1.6;
+        color: $text-light;
+    }
+}
+
+.feature-item.full {
+    grid-column: 1 / -1;
+}
+
+.tools-list {
+    list-style: none;
+    padding: 0;
+
+    li {
+        margin-bottom: 1rem;
+        padding-left: 2.5rem;
+        position: relative;
+        font-size: 1.6rem;
+        color: $text-dark;
+        line-height: 1.5;
+
+        strong {
+            font-weight: 700;
+        }
+
+        &::before {
+            content: "🔧";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+}
+
+.about-footer {
+    text-align: center;
+    max-width: 80rem;
+    margin: 4rem auto 0;
+    padding: 0 2rem;
+
+    p {
+        font-size: 1.8rem;
+        color: $text-dark;
+        line-height: 1.6;
+
+        .highlight-term {
+            font-weight: 700;
+            color: $primary-blue;
+        }
+    }
+}
+
+/* ========================================================================= 
+TERMS & CONDITIONS PAGE STYLES 
+======================================================================== */
+
+.terms-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    padding: 3rem 2rem;
+    background: $bg-light;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.terms-card {
+    max-width: 95rem;
+    width: 100%;
+    background: $white;
+    border-radius: 1.6rem;
+    box-shadow: 0 0.8rem 2.5rem rgba(0, 0, 0, 0.5);
+    padding: 4rem 6rem;
+    box-sizing: border-box;
+}
+
+.terms-header {
+    text-align: left;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 0.1rem solid #eee;
+
+    h1 {
+        font-family: $head-family;
+        font-size: 3.8rem;
+        color: $text-dark;
+        margin: 0;
+    }
+
+    p {
+        margin-top: 0.8rem;
+        font-size: 1.5rem;
+        color: $text-light;
+        font-style: italic;
+    }
+}
+
+.terms-content {
+    padding: 0;
+
+    h2 {
+        font-size: 2.4rem;
+        margin: 4rem 0 1.2rem;
+        color: $text-dark;
+        font-family: $family;
+        font-weight: 700;
+        position: relative;
+        padding-left: 2rem;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 100%;
+            width: 0.4rem;
+            background-color: $primary-blue;
+            border-radius: 0.2rem;
+        }
+    }
+
+    p,
+    li {
+        font-size: 1.7rem;
+        line-height: 1.8;
+        color: $text-dark;
+    }
+
+    ul {
+        margin-left: 2rem;
+        margin-bottom: 3rem;
+        list-style-type: none;
+        padding-left: 0;
+
+        li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+
+            &::before {
+                content: "•";
+                position: absolute;
+                left: 0;
+                color: $primary-blue;
+                font-size: 2rem;
+                top: -0.2rem;
+            }
+        }
+    }
+
+    .highlight-term {
+        font-weight: 700;
+        color: $primary-blue;
+    }
+}
+
+.terms-section {
+    margin-bottom: 4rem;
+}
+
+.contact-section .contact-email {
+    font-weight: 700;
+    color: $primary-blue;
+}
+
+/* ========================================================================= */
+/* 4. PRIVACY POLICY PAGE STYLES (Card Layout) */
+/* ========================================================================= */
+
+.privacy-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    padding: 6rem 2rem;
+    background: $bg-light;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.privacy-card {
+    max-width: 95rem;
+    width: 100%;
+    background: $white;
+    border-radius: 1.6rem;
+    box-shadow: 0 0.8rem 2.5rem rgba(0, 0, 0, 0.5);
+    padding: 4rem 6rem;
+    box-sizing: border-box;
+}
+
+.privacy-header {
+    text-align: left;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 0.1rem solid #eee;
+
+    h1 {
+        font-family: $head-family;
+        font-size: 3.8rem;
+        color: $text-dark;
+        margin: 0;
+    }
+
+    p {
+        margin-top: 0.8rem;
+        font-size: 1.5rem;
+        color: $text-light;
+        line-height: 1.6;
+    }
+
+    .update-note {
+        font-style: italic;
+    }
+}
+
+.privacy-content {
+    padding: 0;
+
+    h2 {
+        font-size: 2.4rem;
+        margin: 4rem 0 1.2rem;
+        color: $text-dark;
+        font-family: $family;
+        font-weight: 700;
+        position: relative;
+        padding-left: 2rem;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 100%;
+            width: 0.4rem;
+            background-color: $primary-blue;
+            border-radius: 0.2rem;
+        }
+    }
+
+    p,
+    li {
+        font-size: 1.7rem;
+        line-height: 1.8;
+        color: $text-dark;
+    }
+
+    ul {
+        margin-left: 2rem;
+        margin-bottom: 3rem;
+        list-style-type: none;
+        padding-left: 0;
+
+        li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+
+            &::before {
+                content: "•";
+                position: absolute;
+                left: 0;
+                color: $primary-blue;
+                font-size: 2rem;
+                top: -0.2rem;
+            }
+
+            .list-heading {
+                font-weight: 700;
+                color: $primary-blue;
+            }
+        }
+    }
+}
+
+.privacy-section {
+    margin-bottom: 4rem;
+}
+
+.contact-section .contact-email {
+    font-weight: 700;
+    color: $primary-blue;
+}
+
+/* ========================================================================= */
+/* 5. MOBILE & RESPONSIVE STYLES */
+/* ========================================================================= */
+
+@media (max-width: 900px) {
+    .terms-card,
+    .privacy-card {
+        padding: 3rem 4rem;
+        margin: 0 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero h1 {
+        font-size: 3rem;
+    }
+    .about-hero p {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .terms-wrapper,
+    .privacy-wrapper {
+        padding: 4rem 0;
+    }
+    .terms-card,
+    .privacy-card {
+        border-radius: 0;
+        box-shadow: none;
+        padding: 2rem;
+    }
+
+    .terms-header h1,
+    .privacy-header h1 {
+        font-size: 3.2rem;
+    }
+
+    .terms-content h2,
+    .privacy-content h2 {
+        font-size: 2rem;
+        padding-left: 1.5rem;
+    }
+
+    .terms-content p,
+    .privacy-content p,
+    .terms-content li,
+    .privacy-content li {
+        font-size: 1.5rem;
+    }
+}

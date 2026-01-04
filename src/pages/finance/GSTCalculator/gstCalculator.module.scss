@@ -1,88 +1,407 @@
-.container {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  border-radius: 12px;
-  background: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+@import url("https://fonts.googleapis.com/css2?family=Beiruti&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+
+$primary-blue: #007bff;
+$light-blue: #e6f0ff;
+$text-dark: #333;
+$text-light: #555;
+$bg-light: #f4f6f8;
+$white: #ffffff;
+$shadow-light: rgba(0, 0, 0, 0.08);
+$family: "Beiruti", sans-serif;
+$head-family: "Abril Fatface", serif;
+
+html {
+    font-size: 62.5%; // 1rem = 10px
 }
 
-.title {
-  font-size: 24px;
-  text-align: center;
-  font-weight: 600;
-  margin-bottom: 20px;
+body {
+    background-color: $bg-light;
+    font-family: $family;
+    color: $text-dark;
+    font-size: 1.6rem;
 }
+a {
+    text-decoration: none;
+    color: green;
+    font-weight: 600;
+}
+/* --- Header Section --- */
+.header {
+    width: 100%;
+    background: linear-gradient(90deg, #1e70e3 0%, #0099ff 100%);
+    color: $white;
+    text-align: center;
+    padding: 3.75rem 1.25rem 8.25rem;
+    margin-bottom: -3.75rem;
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-
-  input {
-    padding: 10px 14px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    outline: none;
-
-    &:focus {
-      border-color: #007bff;
+    h1 {
+        font-size: 3.8rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        font-family: $head-family; // Abril Fatface font
+        text-shadow: 0.1rem 0.1rem 0.3rem rgba(0, 0, 0, 0.1);
     }
-  }
 
-  button {
-    padding: 10px 14px;
-    border: none;
-    border-radius: 8px;
-    background: #007bff;
-    color: white;
-    font-size: 16px;
+    p {
+        font-size: 1.8rem;
+        line-height: 1.4;
+        opacity: 0.9;
+    }
+}
+
+/* --- Card Section (Main Calculator) --- */
+.card {
+    max-width: 90rem;
+    margin: 0 auto 3rem;
+    background: $white;
+    border-radius: 1.6rem;
+    padding: 3rem;
+    box-shadow:
+        0 1rem 3rem $shadow-light,
+        0 0.4rem 1rem $shadow-light;
+    transition: transform 0.3s ease;
+}
+
+.row {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+
+    & > div {
+        flex: 1;
+        min-width: 20rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+        font-weight: 600;
+        color: $text-light;
+    }
+
+    input {
+        padding: 1.4rem;
+        border-radius: 1rem;
+        border: 0.1rem solid #e0e0e0;
+        font-size: 1.8rem;
+        font-weight: 500;
+        transition: all 0.2s ease-in-out;
+        box-shadow: inset 0 0.1rem 0.3rem rgba(0, 0, 0, 0.05);
+
+        &:focus {
+            border-color: $primary-blue;
+            box-shadow:
+                0 0 0 0.3rem $light-blue,
+                inset 0 0.1rem 0.3rem rgba(0, 0, 0, 0.05);
+            outline: none;
+        }
+    }
+}
+
+/* --- Results Section --- */
+.results {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 0.1rem solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    div {
+        flex: 1;
+        min-width: 12rem;
+        background-color: $bg-light;
+        border-radius: 1.2rem;
+        padding: 1.5rem 1rem;
+        box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.05);
+    }
+
+    span {
+        font-size: 2rem;
+        font-weight: 500;
+        display: block;
+        color: $primary-blue;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        font-size: 1.4rem;
+        opacity: 0.8;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .plus,
+    .equal {
+        font-size: 3.5rem;
+        padding: 0 1.5rem;
+        font-weight: 300;
+        align-self: center;
+        color: $text-light;
+    }
+}
+
+/* --- Custom Dropdown --- */
+.customDropdownContainer {
+    position: relative;
+    width: 100%;
+
+    label {
+        display: block;
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+        font-weight: 600;
+        color: $text-light;
+    }
+}
+
+.dropdownHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem;
+    border: 0.1rem solid #e0e0e0;
+    border-radius: 1rem;
+    background-color: $white;
     cursor: pointer;
-    margin-top: 6px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: $text-dark;
+    transition: all 0.2s;
+    box-shadow: inset 0 0.1rem 0.3rem rgba(0, 0, 0, 0.05);
 
     &:hover {
-      background: #005fcc;
+        border-color: $primary-blue;
     }
-  }
 }
 
-.resultBox {
-  margin-top: 20px;
-  padding: 16px;
-  border-radius: 8px;
-  background: #f5f7ff;
-  border-left: 4px solid #007bff;
-
-  p {
-    font-size: 16px;
-    margin: 6px 0;
-  }
+.arrow {
+    font-size: 0.7em;
+    margin-left: 1rem;
+    color: $text-light;
 }
 
-@media (max-width: 480px) {
-  .container {
-    margin: 20px 10px;
-    padding: 15px;
-  }
-
-  .title {
-    font-size: 20px;
-  }
-
-  .form input,
-  .form button {
-    font-size: 14px;
-    padding: 8px 10px;
-  }
-
-  .resultBox p {
-    font-size: 14px;
-  }
+.dropdownList {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    padding: 0.8rem 0;
+    list-style: none;
+    background-color: $white;
+    border: 0.1rem solid #ddd;
+    border-radius: 1rem;
+    box-shadow: 0 0.4rem 1.5rem $shadow-light;
+    max-height: 20rem;
+    overflow-y: auto;
 }
 
-@media (min-width: 1200px) {
-  .container {
-    max-width: 500px;
-  }
+.dropdownItem {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-size: 1.6rem;
+    color: $text-dark;
+    transition: background-color 0.15s;
+
+    &:hover {
+        background-color: $light-blue;
+        color: $primary-blue;
+    }
+}
+
+/* --- Info Section --- */
+.infoSection {
+    //  max-width: 90rem; // Centers and constraints width for desktop
+    margin: 8rem auto 8rem 0;
+    padding: 0 2.5rem;
+
+    h2 {
+        font-size: 2.9rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        color: $text-dark;
+        font-family: $head-family; // Abril Fatface font
+        display: block;
+        padding-bottom: 0.5rem;
+    }
+
+    p {
+        font-size: 1.9rem;
+        opacity: 0.9;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.infoCard {
+    background: $white;
+    border-radius: 1.6rem;
+    padding: 3rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.05);
+
+    h3 {
+        font-size: 2.1rem;
+        font-weight: 400;
+        margin-bottom: 2rem;
+        color: $primary-blue;
+        font-family: $head-family; // Abril Fatface font
+        border-left: 0.4rem solid $primary-blue;
+        padding-left: 1rem;
+    }
+
+    ol {
+        list-style-type: decimal;
+        padding-left: 2rem;
+        margin: 2rem 0 3rem;
+
+        li {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            font-size: 1.7rem;
+        }
+    }
+
+    // New class for styling the note paragraphs (replaces hardcoded nth-of-type)
+    .noteParagraph {
+        font-style: italic;
+        background-color: $light-blue;
+        padding: 1.5rem;
+        border-radius: 0.8rem;
+        border-left: 0.5rem solid $primary-blue;
+        opacity: 1;
+        font-size: 1.5rem;
+        line-height: 1.5;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.gstTypeBox {
+    background: $white;
+    padding: 1.8rem;
+    border-radius: 1.2rem;
+    margin-top: 1.6rem;
+    border: 0.1rem solid #e5e5e5;
+    box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.03);
+
+    h3 {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1.6rem;
+        margin-bottom: 0;
+    }
+}
+
+// Class to remove the hardcoded inline style from React component (used for CGST, SGST, etc.)
+.gstAcronym {
+    color: $primary-blue;
+    font-weight: 700;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 998px) {
+    .header h1 {
+        font-size: 3.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding-bottom: 5rem;
+    }
+
+    .card {
+        padding: 2rem;
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+
+    .row {
+        gap: 1.5rem;
+
+        & > div {
+            min-width: 100%;
+        }
+    }
+
+    // Adjusted font sizes for better mobile hierarchy (keeping ratio)
+    .infoSection {
+        h2 {
+            font-size: 2.4rem;
+        }
+        p {
+            font-size: 1.7rem;
+        }
+    }
+
+    .infoCard {
+        padding: 2rem;
+        h3 {
+            font-size: 1.9rem;
+        }
+        .noteParagraph {
+            font-size: 1.4rem;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 2.8rem;
+    }
+
+    .infoSection {
+        margin: 3rem auto;
+    }
+
+    .results {
+        flex-direction: column;
+        padding-top: 2rem;
+
+        .plus,
+        .equal {
+            display: none;
+        }
+
+        div {
+            width: 100%;
+            text-align: left;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+
+            span {
+                font-size: 2.4rem;
+                min-width: 10rem;
+            }
+
+            p {
+                margin: 0;
+                align-self: center;
+            }
+        }
+    }
+
+    // Ensure mobile padding is consistent for full responsiveness
+    .infoSection {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    .infoCard {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
 }
