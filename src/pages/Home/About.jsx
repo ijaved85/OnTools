@@ -1,5 +1,5 @@
 import React from "react";
-import "./Misc.scss";
+import "./Home.scss";
 
 const About = () => {
     return (
