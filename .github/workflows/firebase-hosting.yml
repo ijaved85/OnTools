@@ -30,4 +30,4 @@ jobs:
       - name: Deploy to Firebase (Ontools only)
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        firebase deploy --only hosting:ontools-4aa16
+        run: firebase deploy --only hosting:ontools-4aa16
