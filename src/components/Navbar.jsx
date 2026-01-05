@@ -12,7 +12,8 @@ function Navbar() {
         <nav className="navbar">
             <div className="nav-container">
                 <Link to="/" className="logo" onClick={closeMenu}>
-                    OnTools
+                  {/*  <img src="/OnTools.svg" alt="OnTools Logo" />*/}
+                    <img src="/ontools.png" alt="OnTools Logo" />
                 </Link>
 
                 <button
@@ -26,11 +27,21 @@ function Navbar() {
                 </button>
 
                 <div className={`nav-links ${menuOpen ? "open" : ""}`}>
-                    <Link to="/gst-calculator" onClick={closeMenu}>GST</Link>
-                    <Link to="/about" onClick={closeMenu}>About</Link>
-                    <Link to="/contact" onClick={closeMenu}>Contact</Link>
-                    <Link to="/terms-of-service" onClick={closeMenu}>Terms of Service</Link>
-                    <Link to="/privacy-policy" onClick={closeMenu}>Privacy Policy</Link>
+                    <Link to="/gst-calculator" onClick={closeMenu}>
+                        GST
+                    </Link>
+                    <Link to="/about" onClick={closeMenu}>
+                        About
+                    </Link>
+                    <Link to="/contact" onClick={closeMenu}>
+                        Contact
+                    </Link>
+                    <Link to="/terms-of-service" onClick={closeMenu}>
+                        Terms of Service
+                    </Link>
+                    <Link to="/privacy-policy" onClick={closeMenu}>
+                        Privacy Policy
+                    </Link>
                 </div>
             </div>
         </nav>

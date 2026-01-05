@@ -29,10 +29,11 @@ body {
 
 /* NAVBAR */
 .navbar {
-    padding: 1rem 2rem;
-    background: #111;
+    padding: 0rem 2rem;
+    background: var(--primary-blue);
+    background: #000;
     color: #fff;
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 1000;
 }
@@ -44,12 +45,21 @@ body {
     max-width: 120rem;
     margin: 0 auto;
 }
-
 .logo {
-    font-weight: 600;
-    color: #fff;
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    font-size: 1.8rem;
+}
+
+.logo img {
+    /* Adjust this value to make the logo larger or smaller */
+    height: 5.5rem;
+    width: 19rem;
+    margin-left: -5rem;
+
+    display: block;
+    /* This ensures the image stays crisp */
+    object-fit: contain;
 }
 
 .nav-links {
