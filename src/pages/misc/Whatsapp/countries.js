@@ -1210,12 +1210,12 @@ export const COUNTRIES =[
 "code": "ZW"
 }
 ];
-export const WhatsAppSEOData = {
+  export const WhatsAppSEOData = {
     title: "WhatsApp Direct | Message without Saving Contact",
     description: "Send WhatsApp messages instantly without saving numbers to your phone. Fast, secure, and free global tool.",
     keywords: "whatsapp direct, message without saving, direct chat, whatsapp tool, send message online",
     ogTitle: "WhatsApp Direct - Message Anyone Instantly",
     ogDescription: "Stop saving temporary numbers. Use this tool to message anyone on WhatsApp directly.",
-    ogImage: "https://firebasestorage.googleapis.com/v0/b/dashboard-4aa16.firebasestorage.app/o/OnTools%2FShare%2FIMG_20260105_212320.jpg?alt=media&token=b49cdb0d-39f9-4bc8-a63e-e3ec6ea7180c", 
     canonicalUrl: "https://ontools.smokescreen.co.in/whatsapp" 
 };
+

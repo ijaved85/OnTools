@@ -4,7 +4,7 @@ import "font-awesome/css/font-awesome.min.css";
 import "./WhatsApp.scss";
 
 import { COUNTRIES, WhatsAppSEOData } from "./countries";
-import useMeta from "./useMeta";
+import useMeta from "../../../components/useMeta";
 
 const WhatsApp = () => {
     useMeta(WhatsAppSEOData);
