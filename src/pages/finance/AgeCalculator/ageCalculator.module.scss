@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;600;700;800&display=swap");
+
+$emerald: #10b981;
+$dark-slate: #0f172a;
+$slate: #1e293b;
+$bg: #f8fafc;
+$white: #ffffff;
+$text-main: #1e293b;
+$text-muted: #64748b;
+$abril: "Abril Fatface", serif;
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: $bg;
+    min-height: 100vh;
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(135deg, $dark-slate 0%, #000 100%);
+    color: white;
+    text-align: center;
+    padding: 6rem 1.5rem 10rem;
+    h1 {
+        font-family: $abril;
+        font-size: clamp(2.8rem, 6vw, 4rem);
+        letter-spacing: 1.5px;
+        margin-bottom: 0.8rem;
+    }
+    p {
+        font-size: 1.6rem;
+        opacity: 0.8;
+        font-weight: 300;
+    }
+}
+
+/* --- Main Tool Card --- */
+.toolCard {
+    max-width: 850px;
+    margin: -6rem auto 4rem;
+    background: $white;
+    border-radius: 24px;
+    padding: 4rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    label {
+        font-weight: 700;
+        color: $text-muted;
+        margin-bottom: 0.8rem;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+}
+
+/* --- Custom DatePicker --- */
+.customDateInput {
+    width: 100%;
+    padding: 1.2rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1.6rem;
+    font-family: inherit;
+    cursor: pointer;
+    background: $white;
+    transition: all 0.2s;
+    color: $text-main;
+
+    &:focus {
+        border-color: $emerald;
+        box-shadow: 0 0 0 4px rgba($emerald, 0.1);
+        outline: none;
+    }
+}
+
+:global {
+    .react-datepicker-wrapper {
+        width: 100%;
+    }
+    .react-datepicker {
+        font-family: inherit;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+    .react-datepicker__header {
+        background-color: $white;
+        border-bottom: 1px solid #f1f5f9;
+        padding-top: 1rem;
+    }
+    .react-datepicker__day--selected {
+        background-color: $emerald !important;
+        border-radius: 50%;
+    }
+}
+
+/* --- Results Dashboard --- */
+.resultDashboard {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 3rem;
+    border-top: 1px solid #f1f5f9;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.mainCircle {
+    width: 160px;
+    height: 160px;
+    background: $emerald;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 10px 20px rgba($emerald, 0.2);
+    .bigNum {
+        font-size: 5rem;
+        font-weight: 800;
+        line-height: 1;
+    }
+    .bigLabel {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        opacity: 0.9;
+    }
+}
+
+.minorStats {
+    display: flex;
+    gap: 1.5rem;
+    .statItem {
+        text-align: center;
+        background: #f1f5f9;
+        padding: 1.5rem;
+        border-radius: 16px;
+        min-width: 100px;
+        strong {
+            display: block;
+            font-size: 2.2rem;
+            color: $text-main;
+        }
+        span {
+            color: $text-muted;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+    }
+}
+
+/* --- Content Section --- */
+.contentWrap {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 1.5rem 6rem;
+
+    h2 {
+        font-family: $abril;
+        font-size: 2.8rem;
+        margin: 3.5rem 0 1.5rem;
+        color: $text-main;
+    }
+    h3 {
+        font-size: 2rem;
+        margin: 2.5rem 0 1rem;
+        color: $emerald;
+    }
+    p {
+        font-size: 1.6rem;
+        line-height: 1.7;
+        color: #475569;
+        margin-bottom: 1.5rem;
+    }
+
+    ul li {
+        font-size: 1.5rem;
+        color: #475569;
+        margin-bottom: 0.8rem;
+    }
+}
+
+.infoBox {
+    background: #ecfdf5;
+    padding: 2.5rem;
+    border-radius: 16px;
+    border-left: 5px solid $emerald;
+    margin: 3rem 0;
+    h4 {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: $emerald;
+        margin-bottom: 0.5rem;
+    }
+    p {
+        font-size: 1.5rem;
+        font-style: italic;
+        margin-bottom: 0;
+    }
+}
+
+.stepCard {
+    position: relative;
+    padding: 2rem 0 2rem 6rem;
+    .stepNum {
+        position: absolute;
+        left: 0;
+        top: 1rem;
+        font-family: $abril;
+        font-size: 4rem;
+        color: rgba($emerald, 0.1);
+    }
+    h3 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 0.6rem;
+    }
+    p {
+        font-size: 1.4rem;
+        color: $text-muted;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 768px) {
+    .calendarGrid {
+        grid-template-columns: 1fr;
+    }
+    .hero {
+        padding: 5rem 1.5rem 8rem;
+    }
+    .toolCard {
+        padding: 2.5rem 1.5rem;
+    }
+    .mainCircle {
+        width: 130px;
+        height: 130px;
+        .bigNum {
+            font-size: 4rem;
+        }
+    }
+    .minorStats .statItem {
+        min-width: 80px;
+        padding: 1.2rem;
+        strong {
+            font-size: 1.8rem;
+        }
+    }
+}

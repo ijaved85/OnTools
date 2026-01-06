@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;600;700;800&display=swap");
+
+$emerald: #10b981;
+$dark-slate: #0f172a;
+$slate: #1e293b;
+$bg: #f8fafc;
+$white: #ffffff;
+$text-muted: #64748b;
+$abril: "Abril Fatface", serif;
+
+.container {
+    background-color: $bg;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    color: $dark-slate;
+}
+
+.hero {
+    background: linear-gradient(135deg, $dark-slate 0%, #000 100%);
+    color: $white;
+    text-align: center;
+    padding: 5rem 1.5rem 8rem;
+    h1 { font-family: $abril; font-size: clamp(2.6rem, 6vw, 3.6rem); letter-spacing: 0.5px; }
+    .accent { color: $emerald; }
+    p { font-size: 1.5rem; opacity: 0.8; margin-top: 0.8rem; line-height: 1.4; }
+}
+
+.toolCard {
+    max-width: 800px;
+    margin: -5rem auto 4rem;
+    background: $white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.inputGroupFull {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    label { font-weight: 700; color: $text-muted; margin-bottom: 0.6rem; font-size: 1.2rem; text-transform: uppercase; }
+    textarea {
+        padding: 1.2rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 10px;
+        font-size: 1.4rem;
+        height: 80px;
+        resize: none;
+        line-height: 1.5;
+        &:focus { border-color: $emerald; outline: none; }
+    }
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    label { font-weight: 700; color: $text-muted; margin-bottom: 0.6rem; font-size: 1.2rem; text-transform: uppercase; }
+    input {
+        padding: 1.1rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 10px;
+        font-size: 1.5rem;
+        &:focus { border-color: $emerald; outline: none; }
+    }
+}
+
+.btnSend {
+    width: 100%;
+    margin-top: 2rem;
+    background: $emerald;
+    color: white;
+    padding: 1.4rem;
+    border-radius: 12px;
+    border: none;
+    font-size: 1.7rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.2s;
+    &:hover { background: darken($emerald, 5%); }
+}
+
+.errorMsg { color: #ef4444; font-size: 1.3rem; margin-top: 1.2rem; text-align: center; font-weight: 600; }
+
+.contentSection {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+
+    .infoCardHeader {
+        text-align: center;
+        margin-bottom: 3.5rem;
+        h3 { font-size: 2.6rem; font-family: $abril; color: $dark-slate; margin-bottom: 0.6rem; }
+        p { color: $text-muted; font-size: 1.5rem; line-height: 1.4; }
+    }
+}
+
+.timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+.stepCard {
+    background: $white;
+    padding: 2.5rem 2rem;
+    border-radius: 18px;
+    border: 1px solid #eef2f6;
+    display: flex;
+    flex-direction: column;
+
+    .stepHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.2rem;
+
+        .stepNum { font-family: $abril; font-size: 3.5rem; color: rgba($emerald, 0.15); line-height: 1; }
+        h4 { font-size: 1.7rem; font-weight: 800; color: $slate; margin: 0; }
+    }
+    .stepContent p { font-size: 1.4rem; line-height: 1.6; color: $text-muted; margin: 0; }
+}
+
+.richContent {
+    margin-bottom: 5rem;
+    h2 { font-size: 2.4rem; font-family: $abril; color: $dark-slate; margin: 3.5rem 0 1.2rem; }
+    h3 { font-size: 1.9rem; color: $emerald; margin: 2.5rem 0 0.8rem; }
+    p { font-size: 1.6rem; line-height: 1.7; color: #475569; margin-bottom: 1.5rem; }
+    ul { margin-bottom: 2.5rem; li { font-size: 1.5rem; margin-bottom: 0.8rem; color: #475569; list-style: square; margin-left: 2rem; } }
+}
+
+.proTip {
+    background: #ecfdf5;
+    padding: 2rem;
+    border-radius: 14px;
+    border-left: 5px solid $emerald;
+    margin: 3.5rem 0;
+    h4 { font-size: 1.6rem; color: $emerald; margin-bottom: 0.4rem; font-weight: 800; }
+    p { font-size: 1.4rem; font-style: italic; margin-bottom: 0; color: #065f46; line-height: 1.5; }
+}
+
+.benefitsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.benefitItem {
+    background: white;
+    padding: 2.5rem 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid #f1f5f9;
+    .iconCircle {
+        width: 50px; height: 50px;
+        background: rgba($emerald, 0.1);
+        color: $emerald;
+        border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        margin: 0 auto 1.2rem; font-size: 2rem;
+    }
+    h4 { font-size: 1.6rem; margin-bottom: 0.6rem; }
+    p { font-size: 1.3rem; color: $text-muted; line-height: 1.5; }
+}
+
+@media (max-width: 650px) {
+    .formGrid { grid-template-columns: 1fr; }
+    .inputGroupFull { grid-column: span 1; }
+    .contentSection .infoCardHeader h3 { font-size: 2.2rem; }
+}

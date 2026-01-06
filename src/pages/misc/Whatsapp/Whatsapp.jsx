@@ -1,10 +1,31 @@
 import React, { useState } from "react";
 import Select from "react-select";
 import "font-awesome/css/font-awesome.min.css";
-import "./WhatsApp.scss";
-
+import styles from "./WhatsApp.module.scss";
 import { COUNTRIES, WhatsAppSEOData } from "./countries";
 import useMeta from "../../../components/useMeta";
+
+const Step = ({ num, title, desc }) => (
+    <div className={styles.stepCard}>
+        <div className={styles.stepHeader}>
+            <span className={styles.stepNum}>{num}</span>
+            <h4>{title}</h4>
+        </div>
+        <div className={styles.stepContent}>
+            <p>{desc}</p>
+        </div>
+    </div>
+);
+
+const Benefit = ({ icon, title, desc }) => (
+    <div className={styles.benefitItem}>
+        <div className={styles.iconCircle}>
+            <i className={`fa ${icon}`} />
+        </div>
+        <h4>{title}</h4>
+        <p>{desc}</p>
+    </div>
+);
 
 const WhatsApp = () => {
     useMeta(WhatsAppSEOData);
@@ -19,16 +40,15 @@ const WhatsApp = () => {
         label: `${c.name} (+${c.dial_code})`
     }));
 
-    const customStyles = {
+    const customSelectStyles = {
         control: (base, state) => ({
             ...base,
-            padding: "0.4rem",
-            borderRadius: "1rem",
-            fontSize: "1.8rem",
-            border: state.isFocused ? "1px solid #1e70e3" : "1px solid #e0e0e0",
-            boxShadow: state.isFocused
-                ? "0 0 0 3px rgba(30,112,227,0.1)"
-                : "none"
+            padding: "0.2rem",
+            borderRadius: "10px",
+            fontSize: "1.5rem",
+            border: state.isFocused ? "2px solid #10b981" : "2px solid #e2e8f0",
+            boxShadow: "none",
+            "&:hover": { borderColor: "#10b981" }
         })
     };
 
@@ -36,154 +56,109 @@ const WhatsApp = () => {
         const cleanNum = phoneNumber.replace(/\D/g, "");
         if (cleanNum.length >= 7) {
             setError("");
-            const url = `https://wa.me/${selectedCode}${cleanNum}?text=${encodeURIComponent(
-                message
-            )}`;
-            window.location.href = url; // mobile-safe
+            const url = `https://wa.me/${selectedCode}${cleanNum}?text=${encodeURIComponent(message)}`;
+            window.open(url, "_blank");
         } else {
             setError("Please enter a valid phone number.");
         }
     };
 
     return (
-        <div className="whatsapp-page">
-            <header className="header">
-                <h1>WhatsApp Direct</h1>
-                <p>
-                    Start a conversation instantly.{" "}
-                    <strong>No contact saving required.</strong>
-                </p>
+        <div className={styles.container}>
+            <header className={styles.hero}>
+                <h1>WhatsApp <span className={styles.accent}>Direct</span></h1>
+                <p>Start conversations instantly without saving contacts to your phonebook.</p>
             </header>
 
-            <main className="card">
-                <section className="form-container">
-                    <div className="row">
-                        <div>
-                            <label htmlFor="message">Message (Optional)</label>
-                            <textarea
-                                id="message"
-                                placeholder="Type your message here..."
-                                value={message}
-                                onChange={e => setMessage(e.target.value)}
-                            />
-                        </div>
+            <main className={styles.toolCard}>
+                <div className={styles.formGrid}>
+                    <div className={styles.inputGroupFull}>
+                        <label>Message (Optional)</label>
+                        <textarea
+                            placeholder="Type a pre-filled message..."
+                            value={message}
+                            onChange={e => setMessage(e.target.value)}
+                        />
                     </div>
 
-                    <div className="row" style={{ marginTop: "2rem" }}>
-                        <div>
-                            <label>Country Code</label>
-                            <Select
-                                options={options}
-                                styles={customStyles}
-                                defaultValue={options.find(
-                                    o => o.value === "91"
-                                )}
-                                onChange={opt =>
-                                    opt && setSelectedCode(opt.value)
-                                }
-                                placeholder="Search country..."
-                            />
-                        </div>
-
-                        <div>
-                            <label htmlFor="phone">Phone Number</label>
-                            <input
-                                id="phone"
-                                type="tel"
-                                placeholder="9876543210"
-                                maxLength="15"
-                                value={phoneNumber}
-                                onChange={e => setPhoneNumber(e.target.value)}
-                            />
-                        </div>
+                    <div className={styles.inputGroup}>
+                        <label>Country</label>
+                        <Select
+                            options={options}
+                            styles={customSelectStyles}
+                            defaultValue={options.find(o => o.value === "91")}
+                            onChange={opt => opt && setSelectedCode(opt.value)}
+                        />
                     </div>
 
-                    {error && (
-                        <div className="error-msg" role="alert">
-                            <i className="fa fa-exclamation-circle"></i> {error}
-                        </div>
-                    )}
+                    <div className={styles.inputGroup}>
+                        <label>Phone Number</label>
+                        <input
+                            type="tel"
+                            placeholder="9876543210"
+                            value={phoneNumber}
+                            onChange={e => setPhoneNumber(e.target.value)}
+                        />
+                    </div>
+                </div>
 
-                    <button className="btn-send" onClick={handleSend}>
-                        Open WhatsApp Chat <i className="fa fa-whatsapp"></i>
-                    </button>
-                </section>
+                {error && <p className={styles.errorMsg}>{error}</p>}
+
+                <button className={styles.btnSend} onClick={handleSend}>
+                    Open Chat <i className="fa fa-whatsapp"></i>
+                </button>
             </main>
 
-            <section className="infoSection">
-                <header className="section-title">
-                    <h2>Mastering Instant Messaging</h2>
-                    <p>
-                        Your ultimate shortcut to reaching anyone on WhatsApp.
-                    </p>
-                </header>
-
-                <div className="timeline-container">
-  <Step
-    num="01"
-    title="Pick Location"
-    desc="Choose the correct country code from the list to ensure your message is delivered to the right WhatsApp number."
-  />
-
-  <Step
-    num="02"
-    title="Enter Number"
-    desc="Enter the phone number without spaces or symbols. There is no need to save the contact on your device."
-  />
-
-  <Step
-    num="03"
-    title="Hit Send"
-    desc="Click send and WhatsApp will open instantly in a new tab with the chat ready to go."
-  />
-</div>
-
-                <div className="benefits-grid">
-                    <Benefit
-                        icon="fa-user-secret"
-                        title="Privacy Guard"
-                        desc="Your privacy comes first. We do not store, track, or log any phone numbers or messages. Everything happens locally on your device."
+            <div className={styles.contentSection}>
+                <div className={styles.infoCardHeader}>
+                    <h3>How to use WhatsApp Direct?</h3>
+                    <p>Simple, fast, and no contact saving required.</p>
+                </div>
+                
+                <div className={styles.timeline}>
+                    <Step 
+                        num="01" 
+                        title="Pick Location" 
+                        desc="Select the recipient's country code from the list to ensure the message reaches the correct destination." 
                     />
-
-                    <Benefit
-                        icon="fa-database"
-                        title="Clean Storage"
-                        desc="No need to save temporary or unwanted contacts anymore. Your phonebook stays clean and clutter-free."
+                    <Step 
+                        num="02" 
+                        title="Enter Number" 
+                        desc="Input the phone number without any symbols, spaces, or leading zeros. Just the pure digits." 
                     />
-
-                    <Benefit
-                        icon="fa-globe"
-                        title="Global Reach"
-                        desc="Send WhatsApp messages to any number worldwide. Works across 200+ countries with proper country codes."
-                    />
-
-                    <Benefit
-                        icon="fa-rocket"
-                        title="Light Speed"
-                        desc="Instant message redirection with zero ads, zero delays, and a lightweight experience optimized for speed."
+                    <Step 
+                        num="03" 
+                        title="Hit Send" 
+                        desc="Click the button to open the official WhatsApp chat window instantly. Your privacy is maintained." 
                     />
                 </div>
-            </section>
+
+                <div className={styles.richContent}>
+                    <h2>Why Use WhatsApp Direct Messaging?</h2>
+                    <p>In today's fast-paced digital world, saving every temporary contact clutters your contact list and compromises your privacy settings (like status and profile picture visibility). WhatsApp Direct solves this by utilizing the official "Click to Chat" API.</p>
+                    
+                    <h3>Key Benefits:</h3>
+                    <ul>
+                        <li><strong>Enhance Privacy:</strong> Prevent strangers from seeing your Status or Profile Photo by avoiding contact saving.</li>
+                        <li><strong>Organized Contacts:</strong> Keep your phonebook limited to friends, family, and colleagues.</li>
+                        <li><strong>Business Efficiency:</strong> Quickly reach out to leads or customers without administrative friction.</li>
+                        <li><strong>Platform Independent:</strong> Works seamlessly on Android, iOS, and WhatsApp Web.</li>
+                    </ul>
+
+                    <div className={styles.proTip}>
+                        <h4>Pro Tip:</h4>
+                        <p>You can pre-fill a message in the text area above. This is great for business owners sending introductory messages to new clients.</p>
+                    </div>
+                </div>
+
+                <div className={styles.benefitsGrid}>
+                    <Benefit icon="fa-user-secret" title="Privacy Guard" desc="No data is stored. Conversations happen directly on the official platform." />
+                    <Benefit icon="fa-database" title="No Clutter" desc="Save storage space and keep your contact list meaningful." />
+                    <Benefit icon="fa-rocket" title="Instant Load" desc="Zero lag, zero ads. Designed for speed to get you into your chat quickly." />
+                </div>
+            </div>
         </div>
     );
 };
-
-const Step = ({ num, title, desc }) => (
-    <article className="step-card">
-        <div className="step-num">{num}</div>
-        <h3>{title}</h3>
-        <p>{desc}</p>
-    </article>
-);
-
-const Benefit = ({ icon, title, desc }) => (
-    <article className="benefit-item">
-        <div className="icon-circle">
-            <i className={`fa ${icon}`} />
-        </div>
-        <h4>{title}</h4>
-        <p>{desc}</p>
-    </article>
-);
 
 export default WhatsApp;

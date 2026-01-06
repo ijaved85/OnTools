@@ -1,0 +1,187 @@
+.home-dashboard {
+    min-height: 100vh;
+    background-color: #f4f6f8;
+}
+
+/* HERO SECTION */
+.hero-section {
+    background: #000;
+    padding: 8rem 2rem;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(30, 112, 227, 0.15) 0%, transparent 70%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    font-family: var(--head-family);
+    margin-bottom: 1rem;
+}
+
+.hero-content .accent {
+    color: #1e70e3;
+}
+
+.hero-content p {
+    font-size: 1.8rem;
+    opacity: 0.8;
+    margin-bottom: 4rem;
+}
+
+/* COMMAND BAR */
+.command-bar {
+    max-width: 650px;
+    margin: 0 auto;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 1.5rem;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.command-bar i {
+    font-size: 2rem;
+    color: #1e70e3;
+}
+
+.command-bar input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    outline: none;
+    font-family: var(--family);
+}
+
+.command-bar .shortcut {
+    background: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    color: #888;
+}
+
+/* DASHBOARD CONTENT */
+.dashboard-grid {
+    max-width: 1200px;
+    margin: -4rem auto 0;
+    padding: 0 2rem 6rem;
+    position: relative;
+    z-index: 2;
+}
+
+.grid-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    color: #fff;
+}
+
+.grid-header h2 { font-size: 2rem; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+
+.status-badge {
+    background: #1e70e3;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* TOOL CARDS */
+.tool-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.action-card {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    border: 1px solid #eee;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.action-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0,0,0,0.08);
+    border-color: #1e70e3;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.icon-wrapper {
+    width: 5rem;
+    height: 5rem;
+    background: #f0f7ff;
+    color: #1e70e3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.2rem;
+    font-size: 2.4rem;
+}
+
+.category-tag {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.card-body h3 {
+    font-size: 2.2rem;
+    color: #111;
+    margin-bottom: 0.8rem;
+}
+
+.card-body p {
+    font-size: 1.5rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f0f0f0;
+    font-weight: 700;
+    color: #1e70e3;
+    font-size: 1.4rem;
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 3rem; }
+    .tool-cards { grid-template-columns: 1fr; }
+}
